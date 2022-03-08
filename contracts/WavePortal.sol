@@ -29,7 +29,7 @@ contract WavePortal {
     constructor() payable {
         console.log("Yo yo, I am a contract and I am smart. This is made by Aditya Singh");
         // setting the initial seed.
-        seed = (block.timestamp + block.difficulty) % 100;
+        seed = (block.timestamp + block.difficulty) % 100; // block.difficulty means that how much computational power will it take to mine a particular block, or decode the hash
     }
 
     
@@ -40,7 +40,7 @@ contract WavePortal {
     function wave(string memory _message) public { // Think of this like a public API endpoint :) 
         // we need to make sure the current timestamp is at least 15 minutes bigger than the last timestamp we stored
         require (
-            lastWavedAt[msg.sender]+ 15 minutes < block.timestamp, "Wait 15m"
+            lastWavedAt[msg.sender] + 15 minutes < block.timestamp, "Wait 15m"
         );
 
         // update the current timestamp we have for the user.
